@@ -1,7 +1,9 @@
-loadkeys jp106
-setfont lat9w-16
 
-#netowrk
+loadkeys jp106
+# setfont lat9w-16
+setfont Lat2-Teminus16
+
+## netowrk
 wifi-menu
 
 
@@ -36,7 +38,7 @@ mount /dev/sda1 /mnt/boot/efi
 
 #TODO: update /etc/pacman.d/mirrorlist
 
-pacstrap /mnt base base-devel dosfstools efibootmgr grub sudo fish vim
+pacstrap /mnt base base-devel dosfstools efibootmgr grub sudo fish vim sudo git wget curl
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
@@ -68,32 +70,26 @@ mkdir /boot/efi/EFI/boot
 cp /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
+
+sudo pacman -S networkmanager gnome-keyring network-manager-apllet
+
 exit
 umount -R /mnt
 reboot
 
 
-# xwindow
-sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg-xclock xorg-server-xephyr
 
-# graphic driver
-lspci |grep VGA
-sudo pacman -S xf86-VGA-intel
-
-sudo pacman -S networkmanager gnome-keyring network-manager-apllet
-
-# font
-ttf-migu ttf-ricty ttf-symbola
-
-useradd <user name> -m -s fish -G wheel
+useradd <user name> -m -s /usr/bin/fish -G wheel
 passwd <user name>
 
 
-user $ pacman  -S xdg-user-dirs-update
+user $ pacman  -S xdg-user-dirs
+user $ LC_ALL=C xdg-user-dirs-update
 
-LC_ALL=C xdg-user-dirs-update
-
-
-
+$ visudo
+- #Defaults env_keep += "HOME"
+- #$wheel ALL=(ALL) ALL
++ Defaults env_keep += "HOME"
++ $wheel ALL=(ALL) ALL
 
 
