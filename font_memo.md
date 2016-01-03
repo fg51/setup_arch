@@ -28,6 +28,13 @@ $ sudo pacman -S abobe-source-han-sans-jp-fonts otf-ipafont
 $ fc-cache -vf
 ```
 
+# for user
+
+```bash
+$ set --export XDG_DATA_HOME "~/.local/share"
+$ $XDG_DATA_HOME/fonts/<font dir>
+```
+
 $ yaurt ttf-migu ttf-ricty ttf-symbola
 
 

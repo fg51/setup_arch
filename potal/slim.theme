@@ -1,0 +1,32 @@
+# portal theme for SLiM - "cube-in-space"
+
+# Messages (ie: shutdown)
+msg_color               #ffffff
+msg_font                Liberation Mono:size=12:dpi=75
+msg_x                   50%
+msg_y                   50%
+
+# valid values: stretch, tile
+background_style        stretch
+
+# Input controls
+input_panel_x           50%
+input_panel_y           50%
+input_name_x            85
+input_name_y            350
+input_font              Liberation Sans:size=12:dpi=75
+input_fgcolor           #ffffff
+
+# Username / password request
+username_font           Liberation Mono:size=12:dpi=75
+username_color          #b7b5b5
+username_x              77
+username_y              320
+password_x              77
+password_y              320	
+
+username_shadow_xoffset 0
+username_shadow_yoffset 0
+
+username_msg            username
+password_msg            password
