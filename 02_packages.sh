@@ -2,7 +2,7 @@
 sudo systemctl disable dhcpcd.service
 sudo systemctl enable NetworkManager
 
-sudo pacman -S networkmanager gnome-keyring network-manager-apllet
+sudo pacman -S networkmanager gnome-keyring network-manager-apllet gnome-icon-theme
 
 # image viewer
 sudo pacman -S sxiv
@@ -35,13 +35,14 @@ sudo pacman -S xf86-video-intel
 
 ## XORG
 pacman -S xorg
-sudo pacman -S xorg-server xorg-server-utils xorg-xinit xorg-xclock xorg-server-xephyr
+#sudo pacman -S xorg-server xorg-xinit xorg-xclock
+sudo pacman -S xorg-server-utils xorg-xinit xorg-xclock
 
 pacman -S rxvt-unicode	#NOTE: which urxvt
 pacman -S tmux
 pacman -S awesome
 
-cp /etc/skel/.xinitrc ~/
+cp /etc/X11/xinit/.xinitrc ~/
 $ echo "exec awesome" >> ~/.xinitrc
 $ startx
 $ killall --user flamefly
@@ -64,5 +65,7 @@ EndSection
 ## login manager: sLim
 sudo pacman -S slim archlinux-themes-slim slim-themes
 
+previe
+slim -p /usr/share/slim/themes/<theme name>
 
 
