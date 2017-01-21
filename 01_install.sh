@@ -1,17 +1,17 @@
 
 loadkeys jp106
-# setfont lat9w-16
-setfont Lat2-Teminus16
+setfont lat9w-16
+#setfont Lat2-Teminus16
 
 ## netowrk
 wifi-menu
 
 
-foo << EOF
-a
-b
-c
-EOF
+#foo << EOF
+#a
+#b
+#c
+#EOF
 
 
 #NOTE:  format
@@ -24,9 +24,9 @@ sda2 512MiB 8300 boot
 sda3 others 8300 
 
 #NOTE:  format
-mkconf.vfat -v -F32 /dev/sda1
-mkconf.ext4 /dev/sda2
-mkconf.ext4 /dev/sda3
+mkfs.vfat -v -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
 
 mkdir /mnt
 mount /dev/sda3 /mnt -o discard
@@ -35,6 +35,8 @@ mount /dev/sda2 /mnt/boot -o discard
 mkdir /mnt/boot/efi
 mount /dev/sda1 /mnt/boot/efi
 
+
+# To use net, dhcpcd ?
 
 #TODO: update /etc/pacman.d/mirrorlist
 
@@ -65,13 +67,14 @@ hwclock --systohc --utc
 echo <host name> > /etc/hostname
 
 pacman -S intel-ucode
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck
+#grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck
 mkdir /boot/efi/EFI/boot
 cp /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-sudo pacman -S networkmanager gnome-keyring network-manager-apllet
+sudo pacman -S networkmanager gnome-keyring network-manager-applet
 
 exit
 umount -R /mnt

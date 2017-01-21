@@ -42,7 +42,7 @@ pacman -S rxvt-unicode	#NOTE: which urxvt
 pacman -S tmux
 pacman -S awesome
 
-cp /etc/X11/xinit/.xinitrc ~/
+cp /etc/X11/xinit/xinitrc ~/
 $ echo "exec awesome" >> ~/.xinitrc
 $ startx
 $ killall --user flamefly
