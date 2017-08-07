@@ -74,7 +74,23 @@ cp /boot/efi/EFI/arch_grub/grubx64.efi /boot/efi/EFI/boot/bootx64.efi
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
-sudo pacman -S networkmanager gnome-keyring network-manager-applet
+```bash
+$ sudoedit /etc/locale-gen
+en_US.UTF8
+ja_JP.UTF8
+$ sudo locale-gen
+```
+
+```bash
+sudo pacman -S networkmanager gnome-keyring network-manager-applet wpa_supplicant dialog
+```
+
+```bash
+$ sudo pacman -S xorg-server xorg-xinit i3-wm i3status
+$ sudo pacman -S dmenu compton ttf-dejavu otf-ipafont
+$ sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+```
+
 
 exit
 umount -R /mnt
@@ -82,7 +98,7 @@ reboot
 
 
 
-useradd <user name> -m -s /usr/bin/fish -G wheel
+useradd <user name> -m -s /usr/bin/bash -G users,wheel
 passwd <user name>
 
 
