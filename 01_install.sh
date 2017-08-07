@@ -40,6 +40,8 @@ mount /dev/sda1 /mnt/boot/efi
 
 #TODO: update /etc/pacman.d/mirrorlist
 
+vim /etc/pacman.d/mirrorlist
+
 pacstrap /mnt base base-devel dosfstools efibootmgr grub sudo fish vim sudo git wget curl
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
@@ -98,9 +100,13 @@ reboot
 
 
 
-useradd <user name> -m -s /usr/bin/bash -G users,wheel
-passwd <user name>
-
+```bash
+$ useradd -m -g users -G wheel -k -s /bin/bash <user name>
+$ passwd <user name>
+$ cp /etc/X11/xinit/xinitrc ~/.xinitrc
+$ chown <user name>:users ~/.xinitrc
+$ chmod 755 ~/.xinitrc
+```
 
 user $ pacman  -S xdg-user-dirs
 user $ LC_ALL=C xdg-user-dirs-update
