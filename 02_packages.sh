@@ -2,7 +2,7 @@
 sudo systemctl disable dhcpcd.service
 sudo systemctl enable NetworkManager
 
-sudo pacman -S networkmanager gnome-keyring network-manager-apllet gnome-icon-theme
+sudo pacman -S networkmanager gnome-keyring network-manager-applet gnome-icon-theme
 
 # image viewer
 sudo pacman -S sxiv
