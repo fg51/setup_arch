@@ -1,0 +1,13 @@
+# ```sh
+# $ parted /dev/sda
+# 
+# (parted) mklabel gpt
+# (parted) mkpart ESP fat32 1MiB 551MiB
+# (parted) set 1 esp on
+# (parted) mkpart primary linux-swap 551MiB 2.5GiB
+# (parted) mkpart primary ext4 2.5GiB 10GiB
+# (parted) mkpart primary ext4 10GiB 100%
+# (parted) q
+# 
+# $ fdisk -l
+# ```

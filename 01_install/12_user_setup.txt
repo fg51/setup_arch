@@ -1,0 +1,3 @@
+# (user) $ pacman -S xdg-user-dirs
+# (user) $ LC_ALL=C xdg-user-dirs-update
+

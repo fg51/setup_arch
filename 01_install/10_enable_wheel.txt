@@ -1,0 +1,6 @@
+# visudo
+# 
+# - #Defaults env_keep += "HOME"
+# - #$wheel ALL=(ALL) ALL
+# + Defaults env_keep += "HOME"
+# + $wheel ALL=(ALL) ALL
